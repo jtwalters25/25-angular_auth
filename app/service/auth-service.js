@@ -8,11 +8,11 @@ function authService($q, $log, $http, $window) {
   let service = {};
   let token = null;
 
-  function setToken(_token){
+  function setToken(_token) {
     $log.debug('authService.setToken');
 
     if (! _token) {
-      return $q.reject(new Error('no token bro'));
+      return $q.reject(new Error('no token'));
     }
 
     $window.localStorage.setItem('token', _token);
@@ -20,10 +20,21 @@ function authService($q, $log, $http, $window) {
     return $q.resolve(token);
   }
 
+  service.getToken = function() {
+    $log.debug('authService.getToken');
+    if (token) {
+      return $q.resolve(token);
+    }
+
+    token = $window.localStorage.getItem('token');
+    if (token) return $q.resolve(token);
+    return $q.reject(new Error('token not found'));
+  };
+
   service.signup = function(user) {
     $log.debug('authService.signup');
 
-    let url = `${__ARP_URL__}/api/signup`;
+    let url = `${__API_URL__}/api/signup`;
     let config = {
       headers: {
         'Content-Type': 'application/json',
@@ -40,10 +51,9 @@ function authService($q, $log, $http, $window) {
       $log.error('failure:', err.message);
       return $q.reject(err);
     });
-
   };
 
-  service.logout = function(){
+  service.logout = function() {
     $log.debug('authService.logout');
 
     $window.localStorage.removeItem('token');
@@ -51,7 +61,7 @@ function authService($q, $log, $http, $window) {
     return $q.resolve();
   };
 
-  service.login = function(user){
+  service.login = function(user) {
     $log.debug('authService.login');
 
     let url = `${__API_URL__}/api/login`;
@@ -62,15 +72,16 @@ function authService($q, $log, $http, $window) {
         Authorization: `Basic ${base64}`
       }
     };
-    return $http.get(url,config)
-      .then( res => {
-        $log.log('success', res.data);
-        return setToken(res.data);
-      })
-      .catch( err => {
-        $log.error(err.message);
-        return $q.reject(err);
-      });
+
+    return $http.get(url, config)
+    .then( res => {
+      $log.log('success', res.data);
+      return setToken(res.data);
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
   };
 
   return service;
