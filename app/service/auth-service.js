@@ -20,10 +20,21 @@ function authService($q, $log, $http, $window) {
     return $q.resolve(token);
   }
 
+  service.getToken = function() {
+    $log.debug('authService.getToken');
+    if (token) {
+      return $q.resolve(token);
+    }
+
+    token = $window.localStorage.getItem('token');
+    if (token) return $q.resolve(token);
+    return $q.reject(new Error('token not found'));
+  };
+
   service.signup = function(user) {
     $log.debug('authService.signup');
 
-    let url = `${__ARP_URL__}/api/signup`;
+    let url = `${__API_URL__}/api/signup`;
     let config = {
       headers: {
         'Content-Type': 'application/json',

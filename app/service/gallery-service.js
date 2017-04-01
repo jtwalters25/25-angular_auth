@@ -89,8 +89,8 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  service.updateGalleries = function (galleryID, galleryData) {
-    $log.debug('galleryService.updateGalleries');
+  service.updateGallery = function (galleryID, galleryData) {
+    $log.debug('galleryService.updateGallery');
 
     return authService.getToken()
     .then( token => {
@@ -129,7 +129,7 @@ function galleryService($q, $log, $http, authService) {
       let url = `${__API_URL__}/api/gallery/${galleryID}`;
       let config = {
         headers: {
-          Authorization: `Beare ${token}`
+          Authorization: `Bearer ${token}`
         }
       };
 
@@ -139,7 +139,7 @@ function galleryService($q, $log, $http, authService) {
       for (let i=0; i <service.galleries.length; i++){
         let current = service.galleries[i];
         if (current._id === galleryID){
-          service.galleries.splice(i,1);
+          service.galleries.splice(i, 1);
           break;
         }
       }
