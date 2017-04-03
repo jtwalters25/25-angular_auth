@@ -21,3 +21,16 @@
 
   }
 }
+.logout-btn-std{
+
+  width: unset;
+  padding: 0 $gutter-std*2.5;
+  background-color: rgb(194, 195, 198);
+  color: $black;
+  font-size: x-large;
+  font-weight: lighter;
+  height:70px;
+  float:right;
+  margin-right:0px;
+  border-radius: 10px 10px 10px
+}
