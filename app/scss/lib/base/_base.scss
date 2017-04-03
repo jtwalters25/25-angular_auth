@@ -42,22 +42,22 @@ body{
     font-weight: lighter;
     height:70px;
     float:right;
-    margin-right:0px;
-    border-radius: 10px 10px 10px
+    margin-right:20px;
+    border-radius: 12px 12px 12px;
   }
 
   .delete-btn-std{
 
     width: unset;
     padding: 0 $gutter-std*2.5;
-    background-color: $primarycolor / 2;
+    background-color: rgb(188, 188, 193);
     color: $black;
     font-size: x-large;
     font-weight: lighter;
     height:70px;
     float:right;
     margin-right:0px;
-    border-radius: 10px 10px 10px
+    border-radius: 12px 12px 12px;
   }
 
 
