@@ -8,7 +8,7 @@ function picService($q, $log, $http, Upload, authService) {
   let service = {};
 
   service.uploadGalleryPic = function(galleryData, picData) {
-    $log.debug('service.uploadGalleryPic');
+    $log.debug('picService.uploadGalleryPic');
 
     return authService.getToken()
     .then( token => {
@@ -38,6 +38,36 @@ function picService($q, $log, $http, Upload, authService) {
       return $q.reject(err);
     });
   };
+
+  service.deletePic = function(galleryData, picID){
+    $log.debug('picService.deletePic');
+
+    return authService.getToken()
+    .then( token => {
+      let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic/${picID}`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.delete(url, config);
+    })
+    .then( () => {
+      for (let i=0; i < galleryData.pics.length; i++){
+        if (galleryData.pics[i]._id === picID){
+          galleryData.pics.splice(i, 1);
+          break;
+        }
+      }
+    })
+    .catch( err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+
 
   return service;
 }
