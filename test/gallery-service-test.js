@@ -53,6 +53,15 @@ describe('Gallery Service', function () {
         Accept: 'application/json',
         Authorization: 'Bearer test token'
       };
+
+      this.$httpBackend.expectDELETE(`${url}/${galleryData._id}`, headers)
+      .respond(204, {});
+
+      this.galleryService.deleteGallery(galleryData._id);
+      this.$log.debug('this', this);
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+
     });
 
   //TODO: create another test for deleting a gallery. expect delete. give headers, respond with 204, then call delete gallery to make sure//
