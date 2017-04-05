@@ -22,9 +22,13 @@ describe('Gallery Item Component', function() {
         },
         deleteDone: function(data) {
           expect(data.galleryData._id).toEqual('12345');
-
         }
       };
+
+      let galleryItemCtrl = this.$componentController('galleryItem', null, mockBindings);
+      galleryItemCtrl.deleteDone({ galleryData: galleryItemCtrl.gallery });
+      // additional tests can go here
+      this.$rootScope.$apply();
     });
   });
 });

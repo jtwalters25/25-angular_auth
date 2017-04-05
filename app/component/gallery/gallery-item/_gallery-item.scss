@@ -11,8 +11,12 @@
    .item-label{
       font-size: 3.5vw;
       color:rgb(57, 56, 56);
-
    }
+   span:nth-child(2){
+      font-size:2.5vw;
+      color:white;
+   }
+
 }
 
 h3{
@@ -23,14 +27,14 @@ h3{
 
 .delete-btn-std{
 
-width: unset;
-padding: 0 $gutter-std*2.5;
-background-color: $primarycolor / 1.2;
-color: $black;
-font-size: x-large;
-font-weight: lighter;
-height:70px;
-float:right;
-margin-right:0px;
-border-radius: 10px 10px 10px
+   width: unset;
+   padding: 0 $gutter-std*2.5;
+   background-color: $primarycolor / 1.2;
+   color: $black;
+   font-size: x-large;
+   font-weight: lighter;
+   height:70px;
+   float:right;
+   margin-right:0px;
+   border-radius: 10px 10px 10px
 }

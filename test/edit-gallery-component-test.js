@@ -55,7 +55,7 @@ describe('Edit Gallery Component', function(){
       editGalleryCtrl.gallery.desc = 'updated desc';
       editGalleryCtrl.gallery.updateGallery()
       .then( gallery => {
-
+        // expect statements
       });
 
       this.$httpBackend.flush();
