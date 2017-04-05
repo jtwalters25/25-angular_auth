@@ -26,7 +26,7 @@ describe('Gallery Service', function () {
         Authorization: 'Bearer test token'
       };
 
-      this.$httpBackend.expectPOST('http://localhost:3000/api/gallery', galleryData, headers)
+      this.$httpBackend.expectPOST('http://localhost:8000/api/gallery', galleryData, headers)
       .respond(200, {
         _id: '1234',
         username: 'testuser',
@@ -41,5 +41,20 @@ describe('Gallery Service', function () {
     });
   });
 
+  describe('galleryService.deleteGallery', () => {
+    it('should 3delete a gallery', () => {
+      let galleryData = {
+        name: 'example gallery',
+        desc: 'example description'
+      };
+
+      let headers = {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: 'Bearer test token'
+      };
+    });
+
   //TODO: create another test for deleting a gallery. expect delete. give headers, respond with 204, then call delete gallery to make sure//
+  });
 });
