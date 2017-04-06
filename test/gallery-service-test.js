@@ -42,7 +42,7 @@ describe('Gallery Service', function () {
   });
 
   describe('galleryService.deleteGallery', () => {
-    it('should 3delete a gallery', () => {
+    it('should delete a gallery', () => {
       let galleryData = {
         name: 'example gallery',
         desc: 'example description'

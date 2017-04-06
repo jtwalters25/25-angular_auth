@@ -53,10 +53,10 @@ describe('Edit Gallery Component', function(){
       let editGalleryCtrl = this.$componentController('editGallery', null, mockBindings);
       editGalleryCtrl.gallery.name = 'updated name';
       editGalleryCtrl.gallery.desc = 'updated desc';
-      editGalleryCtrl.gallery.updateGallery()
-      .then( gallery => {
-        // expect statements
-      });
+      editGalleryCtrl.updateGallery();
+      // .then( gallery => {
+      //   // expect statements
+      // });
 
       this.$httpBackend.flush();
       this.$rootScope.$apply();
