@@ -1,5 +1,7 @@
 'use strict';
 
+
+console.log('slkfjlksdjflksjflksdjlfkjsdlkfj cooolllllll beans');
 require('./_upload-pic.scss');
 
 module.exports = {
@@ -17,6 +19,8 @@ function UploadPicController($log, picService) {
   this.pic = {};
 
   this.uploadPic = function() {
+    console.log('this.pic', this.pic);
+    console.log('this.gallery', this.gallery);
     picService.uploadGalleryPic(this.gallery, this.pic)
     .then( () => {
       this.pic.name = null;

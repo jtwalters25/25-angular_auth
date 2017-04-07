@@ -5,6 +5,7 @@ body{
   font-family: times;
   display: relative;
 
+
   a{
     text-decoration: none;
     font-weight: bold;
@@ -16,20 +17,26 @@ body{
 
   main {
     margin:$gutter-std;
-  }
+
   form{
     width:100%;
   }
   input{
     width: 100%;
     box-sizing:border-box;
-    border: 1px solid grey;
-    margin: $gutter-std /2;
-    margin-left: 2%;
+    border: 2px solid grey;
+    margin-top: $gutter-std /2;
+    margin-bottom: $gutter-std /2;
     font-size: 25px;
     text-align: left;
     height: 60px;
     padding:5px;
+    border-radius: 10px 10px 10px;
+
+    &:focus {
+    background: black;
+    color: lightgrey;
+  }
   }
 
   .btn-std{
@@ -45,7 +52,7 @@ body{
     margin-right:0px;
     border-radius: 10px 10px 10px
   }
-
+}
   footer{
     background-color: grey;
     height:70px;
