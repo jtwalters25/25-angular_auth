@@ -20,6 +20,24 @@
     margin-top: -85px;
 
   }
+  .dropdown {
+   position: absolute;
+   right: 0;
+ }
+}
+.btn{
+  width:100%;
+}
+.dropdown-main{
+
+  width:32%;
+  margin-right:60px;
+  margin-top:12px;
+  border-radius: 10px 10px 10px;
+  color: $black;
+}
+.dropdown-menu{
+  margin:-34px;
 }
 .logout-btn-std{
 
@@ -29,8 +47,8 @@
   color: $black;
   font-size: x-large;
   font-weight: lighter;
-  height:50px;
+  height:35px;
   float:right;
-  margin-right:0px;
+  margin-right:55px;
   border-radius: 10px 10px 10px
 }
