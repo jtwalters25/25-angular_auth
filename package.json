@@ -2,6 +2,7 @@
   "name": "25-angular_auth",
   "version": "1.0.0",
   "description": "![cf](https://i.imgur.com/7v5ASc8.png) Lab 25 - Client Side Auth ======",
+  "engines": { "node": "4.4.7" },
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
