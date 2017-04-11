@@ -1,5 +1,6 @@
 'use strict';
 
+
 const dotenv = require('dotenv');
 const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');
@@ -40,14 +41,7 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
-      }, { //:::: fonts ::::
-        test: /\.(eot|woff|tff|svg).*/,
-        use: 'url-loader?limit=10000&name=fonts/[hash].[ext]',
-      },
-      {
-        test: /\.png$/,
-        use: 'url-loader',
-      },
+      }
     ]
   }
 };
