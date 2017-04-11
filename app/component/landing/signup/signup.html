@@ -7,7 +7,8 @@
   <input type="text"
   ng-minlength="4"
   ng-model="signupCtrl.user.username"
-  placeholder="name" required>
+  placeholder="name"
+  uib-tooltip="No special characters" required>
 
   <input class="input-std"
   type="email"
@@ -18,7 +19,8 @@
   type="password"
   placeholder="password"
   ng-minlength="3"
-  ng-model="signupCtrl.user.password" required>
+  ng-model="signupCtrl.user.password"
+  uib-tooltip="Must be at least 8 characters" required>
 
   <input type="submit" class="btn-std" value="sign up">
 </form>
